@@ -8,6 +8,21 @@ if (error.value) {
     statusMessage: error.value.statusMessage,
   });
 }
+useSeoMeta({
+  title: data.value.name,
+  description:
+    "Sufrah is a recipe app that makes discovering and cooking delicious dishes easy, accessible, and enjoyable for home cooks of all levels.",
+  ogTitle: data.value.name,
+  ogDescription:
+    "Sufrah is a recipe app that makes discovering and cooking delicious dishes easy, accessible, and enjoyable for home cooks of all levels.",
+  ogImage: data.value.image,
+  ogUrl: `https://sufrah.netlify.app/recipes/${data.value.id}`,
+  twitterTitle: data.value.name,
+  twitterDescription:
+    "Sufrah is a recipe app that makes discovering and cooking delicious dishes easy, accessible, and enjoyable for home cooks of all levels.",
+  twitterImage: data.value.image,
+  twitterCard: "summary",
+});
 </script>
 
 <template>

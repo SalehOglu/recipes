@@ -12,19 +12,36 @@ const scrollToRecipes = () => {
   }
 };
 const { data, error } = await useFetch(
-  "https://dummyjson.com/recipes?limit=12"
+  "https://dummyjson.com/recipes?limit=20"
 );
+
+useSeoMeta({
+  title: "Sufrah App",
+  description:
+    "Sufrah is a recipe app that helps you discover and cook delicious meals with ease—perfect for home cooks of all levels.",
+  ogTitle: "Sufrah App",
+  ogDescription:
+    "Sufrah is a recipe app that helps you discover and cook delicious meals with ease—perfect for home cooks of all levels.",
+  ogImage: "/banner.png",
+  ogUrl: "https://sufrah.netlify.app/",
+  twitterTitle: "Sufrah App",
+  twitterDescription:
+    "Sufrah is a recipe app that helps you discover and cook delicious meals with ease—perfect for home cooks of all levels.",
+  twitterImage: "/banner.png",
+  twitterCard: "summary",
+});
 </script>
 <template>
   <main>
     <section class="bg-[#f1f1f1]">
       <div
-        class="container flex flex-col lg:flex-row items-center py-20 gap-10"
+        class="container flex flex-col lg:flex-row items-center py-10 gap-10"
       >
         <div class="flex-1 order-2 lg:order-1 text-center lg:text-left">
-          <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 text-balance">
-            Master the Kitchen with Ease: Unleash Your Inner Chef Today!
+          <h1 class="text-4xl lg:text-6xl font-extrabold mb-2 text-balance">
+            Own the Kitchen with Confidence
           </h1>
+          <h3 class="text-3xl mb-6">Bring Out Your Inner Chef Today!</h3>
           <p class="text-xl lg:text-2xl mb-8 text-balance">
             Discover recipes helping you to find the easiest way to cook.
           </p>
@@ -49,7 +66,7 @@ const { data, error } = await useFetch(
       <h2 class="text-3xl lg:text-5xl mb-2">Discover, Create, Share</h2>
       <p class="text-lg lg:text-xl mb-8">Check out our most popular recipes!</p>
       <div
-        v-if="!error"
+        v-if="data?.recipes && !error"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8"
       >
         <div
@@ -63,6 +80,7 @@ const { data, error } = await useFetch(
             format="webp"
             densities="x1"
             class="rounded-t-md"
+            :alt="recipe.name"
           />
           <div class="flex flex-col py-6 px-4 flex-1">
             <p class="text-xl lg:text-2xl font-semibold mb-2">
@@ -91,13 +109,13 @@ const { data, error } = await useFetch(
               :to="`/recipes/${recipe.id}`"
               class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-base lg:text-lg cursor-pointer"
             >
-              View
+              View Recipe
             </NuxtLink>
           </div>
         </div>
       </div>
       <div v-else class="text-xl">
-        Opps, something went wrong. Please try again later.
+        Oops, something went wrong. Please try again later.
       </div>
     </section>
   </main>

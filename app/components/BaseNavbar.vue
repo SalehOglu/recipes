@@ -9,10 +9,10 @@
       <ul
         class="flex flex-col sm:flex-row gap-0 sm:gap-5 ml-auto text-lg font-bold capitalize"
       >
-        <li class="hover:bg-dodgeroll-gold hover:text-white">
+        <li class="hover:bg-dodgeroll-gold hover:text-white hover:rounded-md">
           <NuxtLink to="/">Home</NuxtLink>
         </li>
-        <li class="hover:bg-dodgeroll-gold hover:text-white">
+        <li class="hover:bg-dodgeroll-gold hover:text-white hover:rounded-md">
           <NuxtLink to="/about">About</NuxtLink>
         </li>
       </ul>
@@ -21,6 +21,6 @@
 </template>
 <style scoped lang="scss">
 li {
-  padding: 5px;
+  padding: 5px 12px;
 }
 </style>

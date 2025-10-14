@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: false },
+  devtools: { enabled: true},
   image: {
     // Allow remote domains for Nuxt Image
     domains: ['cdn.dummyjson.com']
