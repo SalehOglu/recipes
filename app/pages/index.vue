@@ -74,14 +74,17 @@ useSeoMeta({
           :key="recipe.id"
           class="flex flex-col shadow rounded-md"
         >
-          <NuxtImg
-            :src="recipe.image"
-            sizes="xs:100vw sm:50vw md: lg:400"
-            format="webp"
-            densities="x1"
-            class="rounded-t-md"
-            :alt="recipe.name"
-          />
+          <NuxtLink :to="`/recipes/${recipe.id}`">
+            <NuxtImg
+              :src="recipe.image"
+              sizes="xs:100vw sm:50vw md: lg:400"
+              format="webp"
+              densities="x1"
+              class="rounded-t-md"
+              :alt="recipe.name"
+            />
+          </NuxtLink>
+
           <div class="flex flex-col py-6 px-4 flex-1">
             <p class="text-xl lg:text-2xl font-semibold mb-2">
               {{ recipe.name }}
