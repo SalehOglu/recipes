@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
+  image: {
+    // Allow remote domains for Nuxt Image
+    domains: ['cdn.dummyjson.com']
+  },
   // ssr: false,
   modules: [
     '@nuxtjs/google-fonts',

@@ -2,6 +2,15 @@
 // const { data, error } = await useAsyncData("recipes", () =>
 //   $fetch("https://dummyjson.com/recipes?limit=12")
 // );
+
+const scrollToRecipes = () => {
+  const recipeSection = document.getElementById("recipesContainer");
+  if (recipeSection) {
+    recipeSection.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+};
 const { data, error } = await useFetch(
   "https://dummyjson.com/recipes?limit=12"
 );
@@ -20,6 +29,7 @@ const { data, error } = await useFetch(
             Discover recipes helping you to find the easiest way to cook.
           </p>
           <button
+            @click="scrollToRecipes"
             class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-lg cursor-pointer"
           >
             Browse Recipes
@@ -27,7 +37,7 @@ const { data, error } = await useFetch(
         </div>
         <div class="flex-1 order-1 lg:order-2">
           <NuxtImg
-            src="/nuxt-course-hero.png"
+            src="/banner.png"
             sizes="xs:100vw sm:50vw lg:667"
             format="webp"
             densities="x1"
@@ -35,7 +45,7 @@ const { data, error } = await useFetch(
         </div>
       </div>
     </section>
-    <section class="py-20 container">
+    <section class="py-20 container" id="recipesContainer">
       <h2 class="text-3xl lg:text-5xl mb-2">Discover, Create, Share</h2>
       <p class="text-lg lg:text-xl mb-8">Check out our most popular recipes!</p>
       <div
